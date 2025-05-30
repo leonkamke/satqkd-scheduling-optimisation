@@ -1,0 +1,32 @@
+constructionHeuristicType categorical {FIRST_FIT,NONE} [NONE]
+ls1Type categorical {HILL_CLIMBING,TABU_SEARCH,SIMULATED_ANNEALING,LATE_ACCEPTANCE,NONE} [NONE]
+ls2Type categorical {HILL_CLIMBING,TABU_SEARCH,SIMULATED_ANNEALING,LATE_ACCEPTANCE,NONE} [NONE]
+fractionTime real [0.05,0.95] [0.5]
+ls1AcceptedCountLimitHillClimbing integer [1,10000] [10000]
+ls2AcceptedCountLimitHillClimbing integer [1,10000] [10000]
+ls1EntityTabuSizeTabuSearch integer [100,100000] [1000]
+ls2EntityTabuSizeTabuSearch integer [100,100000] [1000]
+ls1AcceptedCountLimitTabuSearch integer [1,10000] [10000]
+ls2AcceptedCountLimitTabuSearch integer [1,10000] [10000]
+ls1LateAcceptanceSizeLateAcceptance integer [100,10000] [400]
+ls2LateAcceptanceSizeLateAcceptance integer [100,10000] [400]
+ls1AcceptedCountLimitLateAcceptance integer [1, 100] [1]
+ls2AcceptedCountLimitLateAcceptance integer [1, 100] [1]
+ls1AcceptedCountLimitSimulatedAnnealing integer [1, 10] [1]
+ls2AcceptedCountLimitSimulatedAnnealing integer [1, 10] [1]
+
+fractionTime | ls1Type != NONE && ls2Type != NONE
+ls1AcceptedCountLimitHillClimbing | ls1Type == HILL_CLIMBING
+ls2AcceptedCountLimitHillClimbing | ls2Type == HILL_CLIMBING
+ls1EntityTabuSizeTabuSearch | ls1Type == TABU_SEARCH
+ls2EntityTabuSizeTabuSearch | ls2Type == TABU_SEARCH
+ls1AcceptedCountLimitTabuSearch | ls1Type == TABU_SEARCH
+ls2AcceptedCountLimitTabuSearch | ls2Type == TABU_SEARCH
+ls1LateAcceptanceSizeLateAcceptance | ls1Type == LATE_ACCEPTANCE
+ls2LateAcceptanceSizeLateAcceptance | ls2Type == LATE_ACCEPTANCE
+ls1AcceptedCountLimitLateAcceptance | ls1Type == LATE_ACCEPTANCE
+ls2AcceptedCountLimitLateAcceptance | ls2Type == LATE_ACCEPTANCE
+ls1AcceptedCountLimitSimulatedAnnealing | ls1Type == SIMULATED_ANNEALING
+ls2AcceptedCountLimitSimulatedAnnealing | ls2Type == SIMULATED_ANNEALING
+
+
